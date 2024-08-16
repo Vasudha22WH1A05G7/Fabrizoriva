@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FABRIZIO RIVA</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #eae1e7;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 40px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #333;
+            margin-right: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #d4b9b9;
+        }
+
+        .content {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .content form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .content form label {
+            font-weight: bold;
+        }
+
+        .content form input, .content form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .content form button {
+            background-color: #d4b9b9;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .content form button:hover {
+            background-color: #333;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 40px 20px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-section {
+            margin-bottom: 20px;
+        }
+
+        footer .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-section p, footer .footer-section a {
+            margin-bottom: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        footer .footer-section .social-icons a {
+            margin-right: 10px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        footer .footer-section .social-icons a:hover {
+            color: #d4b9b9;
+        }
+
+        footer p.copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fabrizioriva</h1>
+        <nav>
+            <ul>
+                <li><a href="mainweb.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feedback, or need assistance, please feel free to reach out to us using the form below. Our team is here to help you and we will get back to you as soon as possible.</p>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-section">
+           
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <p><a href="about.html">About</a></p>
+            <p><a href="contact.html">Contact Us</a></p>
+            <p><a href="privacy.html">Privacy Policy</a></p>
+            <p><a href="terms.html">Terms of Service</a></p>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: support@fabrizioriva.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <p>Address: 123 Fashion Street, India, IND 10001</p>
+        </div>
+        <p class="copyright">&copy; 2024 Fabrizioriva. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

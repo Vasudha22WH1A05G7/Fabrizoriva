@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track My Order - Fabrizioriva</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        .order-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .order-header h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .order-details {
+            margin-bottom: 20px;
+        }
+
+        .order-details h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .order-details p {
+            margin: 0;
+        }
+
+        .tracking-status {
+            margin-bottom: 20px;
+        }
+
+        .tracking-status h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .tracking-status ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tracking-status ul li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 20px;
+        }
+
+        .tracking-status ul li::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            background-color: #fff;
+            z-index: 1;
+        }
+
+        .tracking-status ul li.completed-green::before {
+            border-color: #28a745;
+            background-color: #28a745;
+        }
+
+        .tracking-status ul li.completed-white::before {
+            border-color: #28a745;
+            background-color: #fff;
+        }
+
+        .tracking-status ul li::after {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 25px;
+            width: 2px;
+            height: calc(100% - 25px);
+            background-color: #ccc;
+        }
+
+        .tracking-status ul li.completed-green::after {
+            background-color: #28a745;
+        }
+
+        .tracking-status ul li:last-child::after {
+            display: none;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-top: 1px solid #ccc;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='my_orders.html'">
+        <img src="https://cdn3.iconfinder.com/data/icons/ui-essential-elements-dark-buttons/110/Back-1024.png" alt="Back Icon">
+       
+    </button>
+    <div class="order-container">
+        <div class="order-header">
+            <h2>Track My Order</h2>
+            <span id="order-id">Order ID: </span>
+        </div>
+
+        <div class="order-details">
+            <h4>Product Details</h4>
+            <p id="product-details"></p>
+            <p id="seller-details"></p>
+            <p id="price-details"></p>
+        </div>
+
+        <div class="tracking-status">
+            <h4>Tracking Status</h4>
+            <ul id="tracking-status-list">
+                <!-- Tracking status will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Fabrizioriva. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('orderId');
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const order = orders.find(order => order.id === orderId);
+
+            if (order) {
+                document.getElementById('order-id').textContent += order.id;
+                document.getElementById('product-details').textContent = order.items.map(item => `${item.name} - ${item.quantity} x ${item.price}`).join(', ');
+                document.getElementById('seller-details').textContent = 'Seller: SuperComNet';
+                document.getElementById('price-details').textContent = `Price: ₹${order.total}`;
+
+                const trackingStatusList = document.getElementById('tracking-status-list');
+                const trackingStatus = [
+                    { status: 'Ordered and Approved', date: order.dates.order, completed: 'completed-green' },
+                    { status: 'Packed', date: order.dates.packed, completed: 'completed-green' },
+                    { status: 'Shipped', date: order.dates.shipped, completed: 'completed-green' },
+                    { status: 'Delivery', date: `Expected by ${order.dates.delivery}`, completed: 'completed-white' },
+                ];
+
+                trackingStatus.forEach(status => {
+                    const li = document.createElement('li');
+                    li.classList.add(status.completed);
+                    li.innerHTML = `<strong>${status.status}</strong><br><small>${status.date}</small>`;
+                    trackingStatusList.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

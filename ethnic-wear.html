@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethnicwear</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product .price {
+            margin-top: 10px;
+        }
+
+        .product button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .heart {
+            margin-top: 5px;
+            font-size: 30px;
+            color: #0f0e0e;
+            cursor: pointer;
+        }
+
+        .heart.liked {
+            color: red;
+        }
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='mainweb.html'">
+        <img src="https://cdn3.iconfinder.com/data/icons/ui-essential-elements-dark-buttons/110/Back-1024.png" alt="Back Icon">
+       
+    </button>
+
+        <h1>Ethnic wear!</h1>
+    </header>
+
+    <section>
+        <h2>Featured Products</h2>
+
+        <!-- Product cards with heart icon for adding to favorites -->
+        
+<div class="product">
+    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/b/9/b95c8ffMEERA-MER885_8.jpg?rnd=20200526195200&tr=w-720" alt="Product 1">
+    <div class="price">₹999</div>
+    <button onclick="addToCart('Beautiful Ethnic', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/b/9/b95c8ffMEERA-MER885_8.jpg?rnd=20200526195200&tr=w-720', '₹099', 'M')">Add to Cart</button>
+    <button onclick="addToFavorites('Beautiful Ethnic', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/b/9/b95c8ffMEERA-MER885_8.jpg?rnd=20200526195200&tr=w-720', '₹999', 'M')">Add to Favorites</button>
+</div>
+<!-- Repeat for other products -->
+<div class="product">
+    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/c/a/ca42931NYKFF_LSDY0054_1.jpg?rnd=20200526195200&tr=w-720" alt="Product 2">
+    <div class="price">₹899</div>
+    <button onclick="addToCart('Elegant ethnic wear', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/c/a/ca42931NYKFF_LSDY0054_1.jpg?rnd=20200526195200&tr=w-720', '₹899', 'M')">Add to Cart</button>
+    <button onclick="addToFavorites('Elegant ethnic wear', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/c/a/ca42931NYKFF_LSDY0054_1.jpg?rnd=20200526195200&tr=w-720', '₹899', 'M')">Add to Favorites</button>
+</div>
+<div class="product">
+    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/4/d/4d620f3HPPKSD-229_1.jpg?rnd=20200526195200&tr=w-720" alt="Product 3">
+    <div class="price">₹799</div>
+    <button onclick="addToCart('Pretty ethnic', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/4/d/4d620f3HPPKSD-229_1.jpg?rnd=20200526195200&tr=w-720', '₹799', 'M')">Add to Cart</button>
+    <button onclick="addToFavorites('Pretty ethnic', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/4/d/4d620f3HPPKSD-229_1.jpg?rnd=20200526195200&tr=w-720', '₹799', 'M')">Add to Favorites</button>
+</div>
+<div class="product">
+    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/7/0/701b1b8INWVE-6453678016079_4.jpg?rnd=20200526195200&tr=w-720" alt="Product 4">
+    <div class="price">₹699</div>
+    <button onclick="addToCart('Desi style', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/7/0/701b1b8INWVE-6453678016079_4.jpg?rnd=20200526195200&tr=w-720', '₹699', 'M')">Add to Cart</button>
+    <button onclick="addToFavorites('Desi style', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/7/0/701b1b8INWVE-6453678016079_4.jpg?rnd=20200526195200&tr=w-720', '₹699', 'M')">Add to Favorites</button>
+</div>
+<div class="product">
+    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/2/7/27a415eSKD-47012-1104-37_1.jpg?rnd=20200526195200&tr=w-720" alt="Product 5">
+    <div class="price">₹1199</div>
+    <button onclick="addToCart('Vibe traditional', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/2/7/27a415eSKD-47012-1104-37_1.jpg?rnd=20200526195200&tr=w-720', '₹1199', 'M')">Add to Cart</button>
+    <button onclick="addToFavorites('Vibe traditional', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/2/7/27a415eSKD-47012-1104-37_1.jpg?rnd=20200526195200&tr=w-720', '₹1199', 'M')">Add to Favorites</button>
+</div>
+<div class="product">
+    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/9/b/9b6c4aeSKD-4766-1232-37_1.jpg?rnd=20200526195200&tr=w-720" alt="Product 6">
+    <div class="price">₹1090</div>
+    <button onclick="addToCart('Soft Ethnic', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/9/b/9b6c4aeSKD-4766-1232-37_1.jpg?rnd=20200526195200&tr=w-720', '₹1090', 'M')">Add to Cart</button>
+    <button onclick="addToFavorites('Soft Ethnic', 'https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/9/b/9b6c4aeSKD-4766-1232-37_1.jpg?rnd=20200526195200&tr=w-720', '₹1090', 'M')">Add to Favorites</button>
+</div>
+
+
+        <!-- Add more products similarly -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fabrizioriva. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleLike(element, name, image, price, size) {
+            element.classList.toggle('liked');
+            if (element.classList.contains('liked')) {
+                addToFavorites(name, image, price, size); // Pass item details to addToFavorites
+            } else {
+                // Handle removing from favorites if needed
+            }
+        }
+
+        function addToFavorites(name, image, price, size) {
+            const favoriteItems = JSON.parse(localStorage.getItem('favorites')) || [];
+            if (name && image && price && size) {
+                const item = { name, image, price, size };
+                favoriteItems.push(item);
+                localStorage.setItem('favorites', JSON.stringify(favoriteItems));
+                alert('Item added to favorites');
+            } else {
+                alert('Error: Missing data for adding to favorites.');
+            }
+        }
+        
+
+        function addToCart(name, image, price, size) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = { name, image, price, size }; // Create item object
+            cartItems.push(item);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            alert('Item added to cart');
+        }
+    </script>
+</body>
+</html>

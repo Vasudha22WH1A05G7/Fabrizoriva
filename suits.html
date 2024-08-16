@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suits</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product .price {
+            margin-top: 10px;
+        }
+
+        .product button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .heart {
+            margin-top: 5px;
+            font-size: 30px;
+            color: #0f0e0e;
+            cursor: pointer;
+        }
+
+        .heart.liked {
+            color: red;
+        }
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='mainweb.html'">
+        <img src="https://cdn3.iconfinder.com/data/icons/ui-essential-elements-dark-buttons/110/Back-1024.png" alt="Back Icon">
+       
+    </button>
+    <section>
+        <h2>Featured Products</h2>
+
+        <div class="product">
+            <img src="https://images.pexels.com/photos/7698742/pexels-photo-7698742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ethnic Wear 1">
+            <div class="price">$270</div>
+            <button onclick="addToCart('Suits', 'https://images.pexels.com/photos/7698742/pexels-photo-7698742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', alt='Suits 1', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Suits', 'https://images.pexels.com/photos/7698742/pexels-photo-7698742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 ', '₹99', 'M')">Add to Favorites</button>
+
+            
+        </div>
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ff0%2F01%2Ff0014dbe49912c26aeeb226832041173da077863.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]" alt="Ethnic Wear 1">
+            <div class="price">$310</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ff0%2F01%2Ff0014dbe49912c26aeeb226832041173da077863.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Ff0%2F01%2Ff0014dbe49912c26aeeb226832041173da077863.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+        <div class="product">
+            <img src="https://images.pexels.com/photos/3178767/pexels-photo-3178767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ethnic Wear 1">
+            <div class="price">$299</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://images.pexels.com/photos/3178767/pexels-photo-3178767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://images.pexels.com/photos/3178767/pexels-photo-3178767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F04%2Fd6%2F04d6b78ce95a28dc5808835d2753c688a9d64fc8.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]" alt="Ethnic Wear 1">
+            <div class="price">$179</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F04%2Fd6%2F04d6b78ce95a28dc5808835d2753c688a9d64fc8.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F04%2Fd6%2F04d6b78ce95a28dc5808835d2753c688a9d64fc8.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F80%2F39%2F8039926b404e2570aa38bd6bd5ea80b0030561af.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]" alt="Ethnic Wear 1">
+            <div class="price">$170</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd8%2Fda%2Fd8da8d20ae44bfea226aa4d7f26ca731bc7bdd1d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd8%2Fda%2Fd8da8d20ae44bfea226aa4d7f26ca731bc7bdd1d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+
+        <div class="product">
+            <img src=" https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F37%2F96%2F3796fa990d0909e7fe6d18ec97a76be5353138f1.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]" alt="Ethnic Wear 1">
+            <div class="price">$240</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/80/39/8039926b404e2570aa38bd6bd5ea80b0030561af.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/80/39/8039926b404e2570aa38bd6bd5ea80b0030561af.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+            
+        </div>
+
+        <!-- Add more products similarly -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fabrizioriva. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleLike(element, name, image, price, size) {
+            element.classList.toggle('liked');
+            if (element.classList.contains('liked')) {
+                addToFavorites(name, image, price, size); // Pass item details to addToFavorites
+            } else {
+                // Handle removing from favorites if needed
+            }
+        }
+
+        function addToFavorites(name, image, price, size) {
+            const favoriteItems = JSON.parse(localStorage.getItem('favorites')) || [];
+            if (name && image && price && size) {
+                const item = { name, image, price, size };
+                favoriteItems.push(item);
+                localStorage.setItem('favorites', JSON.stringify(favoriteItems));
+                alert('Item added to favorites');
+            } else {
+                alert('Error: Missing data for adding to favorites.');
+            }
+        }
+        
+
+        function addToCart(name, image, price, size) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = { name, image, price, size }; // Create item object
+            cartItems.push(item);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            alert('Item added to cart');
+        }
+    </script>
+</body>
+</html>

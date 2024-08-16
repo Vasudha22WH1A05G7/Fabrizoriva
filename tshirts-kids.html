@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidswear - Frocks</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        section {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product .price {
+            margin-top: 10px;
+        }
+
+        .product button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .heart {
+            margin-top: 5px;
+            font-size: 30px;
+            color: #0f0e0e;
+            cursor: pointer;
+        }
+
+        .heart.liked {
+            color: red;
+        }
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='mainweb.html'">
+        <img src="https://cdn3.iconfinder.com/data/icons/ui-essential-elements-dark-buttons/110/Back-1024.png" alt="Back Icon">
+       
+    </button>
+    <header>
+        <h1>Tshirts!</h1>
+    </header>
+
+    <section>
+        <h2>Featured Products</h2>
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fa4%2F33%2Fa433621ac44c7fd67aa8564bf3567065fc14fd6e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]">
+            <div class="price">$45</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/a4/33/a433621ac44c7fd67aa8564bf3567065fc14fd6e.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/a4/33/a433621ac44c7fd67aa8564bf3567065fc14fd6e.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F31%2F8b%2F318bdb2a94cc3c1e61c07237f1dd7ea53a2ef48f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]">
+            <div class="price">$29</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/31/8b/318bdb2a94cc3c1e61c07237f1dd7ea53a2ef48f.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/31/8b/318bdb2a94cc3c1e61c07237f1dd7ea53a2ef48f.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F7e%2F02%2F7e02ef6c82bc573be6f148014fa9384d6f17ec1d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]">
+            <div class="price">$19</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/7e/02/7e02ef6c82bc573be6f148014fa9384d6f17ec1d.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/7e/02/7e02ef6c82bc573be6f148014fa9384d6f17ec1d.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fe0%2F64%2Fe064f5939e2e0573ebc6dca375a120f351c9e42e.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]">
+            <div class="price">$30</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/e0/64/e064f5939e2e0573ebc6dca375a120f351c9e42e.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/e0/64/e064f5939e2e0573ebc6dca375a120f351c9e42e.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F62%2Fb4%2F62b450021dcb276509caa04001d6259edc508d81.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]">
+            <div class="price">$29</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/62/b4/62b450021dcb276509caa04001d6259edc508d81.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/62/b4/62b450021dcb276509caa04001d6259edc508d81.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+
+
+        <div class="product">
+            <img src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F24%2F7f%2F247f05ecb9590548d0b114aa0fb7b7c37a6a17f1.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/fullscreen]">
+            <div class="price">$69</div>
+            <button onclick="addToCart('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/24/7f/247f05ecb9590548d0b114aa0fb7b7c37a6a17f1.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Cart</button>
+            <button onclick="addToFavorites('Beautiful Frock', 'https://lp2.hm.com/hmgoepprod?set=quality[79],source[/24/7f/247f05ecb9590548d0b114aa0fb7b7c37a6a17f1.jpg],origin[dam],category[],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/fullscreen]', '₹99', 'M')">Add to Favorites</button>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fabrizioriva. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleLike(element, name, image, price, size) {
+            element.classList.toggle('liked');
+            if (element.classList.contains('liked')) {
+                addToFavorites(name, image, price, size); // Pass item details to addToFavorites
+            } else {
+                // Handle removing from favorites if needed
+            }
+        }
+
+        function addToFavorites(name, image, price, size) {
+            const favoriteItems = JSON.parse(localStorage.getItem('favorites')) || [];
+            if (name && image && price && size) {
+                const item = { name, image, price, size };
+                favoriteItems.push(item);
+                localStorage.setItem('favorites', JSON.stringify(favoriteItems));
+                alert('Item added to favorites');
+            } else {
+                alert('Error: Missing data for adding to favorites.');
+            }
+        }
+        
+
+        function addToCart(name, image, price, size) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = { name, image, price, size }; // Create item object
+            cartItems.push(item);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            alert('Item added to cart');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favorites</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #favourite-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .favorite-item {
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            position: relative; /* Added */
+        }
+
+        .favorite-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .favorite-item h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .favorite-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* Added styles for size, quantity, and delete button */
+        .favorite-item-details {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .favorite-item-details select {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .favorite-item-actions button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            width: calc(100% - 20px);
+        }
+
+        .favorite-item-actions button:hover {
+            background-color: #555;
+        }
+
+        .move-to-cart-btn {
+            background-color: #218838;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .move-to-cart-btn:hover {
+            background-color: #0c0c0c;
+        }
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='mainweb.html'">
+        <img src="https://cdn3.iconfinder.com/data/icons/ui-essential-elements-dark-buttons/110/Back-1024.png" alt="Back Icon">
+       
+    </button>
+
+    <div class="container">
+        <h1>Your Favorites</h1>
+
+        <div id="favourite-items">
+            <!-- Favorite items will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            displayFavoriteItems();
+        });
+
+        function displayFavoriteItems() {
+            const favoriteItems = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favoriteItemsContainer = document.getElementById('favourite-items');
+
+            favoriteItemsContainer.innerHTML = '';
+
+            favoriteItems.forEach(function(item, index) {
+                const favoriteItemDiv = document.createElement('div');
+                favoriteItemDiv.classList.add('favorite-item');
+
+                favoriteItemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>Price: ${item.price}</p>
+                    <div class="favorite-item-details">
+                        <select id="size-${index}">
+                            <option value="S">Size: S</option>
+                            <option value="M">Size: M</option>
+                            <option value="L">Size: L</option>
+                            <option value="XL">Size: XL</option>
+                            <option value="XXL">Size: XXL</option>
+                        </select>
+                        <br>
+                        <input type="number" id="quantity-${index}" value="1" min="1">
+                        <br>
+                        <button class="move-to-cart-btn" onclick="moveToCart(${index})">Move to Cart</button>
+                        <button onclick="deleteItem(${index})">Delete</button>
+                    </div>
+                `;
+
+                favoriteItemsContainer.appendChild(favoriteItemDiv);
+            });
+        }
+
+        function deleteItem(index) {
+            const favoriteItems = JSON.parse(localStorage.getItem('favorites')) || [];
+            favoriteItems.splice(index, 1);
+            localStorage.setItem('favorites', JSON.stringify(favoriteItems));
+            displayFavoriteItems();
+        }
+
+        function moveToCart(index) {
+            const favoriteItems = JSON.parse(localStorage.getItem('favorites')) || [];
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const selectedItem = favoriteItems[index];
+            cartItems.push(selectedItem);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            favoriteItems.splice(index, 1);
+            localStorage.setItem('favorites', JSON.stringify(favoriteItems));
+            displayFavoriteItems();
+        }
+    </script>
+</body>
+</html>

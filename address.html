@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Address</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .checkout-btn {
+            padding: 15px;
+            font-size: 1em;
+            background-color: #0c0c0c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+  	
+    <div class="container">
+        <h1>Shipping Address</h1>
+        <form id="address-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+            
+            <label for="address">Address</label>
+            <textarea id="address" required></textarea>
+
+            <label for="city">City</label>
+            <input type="text" id="city" required>
+            
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" required>
+            
+            <label for="country">Country</label>
+            <input type="text" id="country" required>
+
+            <button type="submit" class="checkout-btn">Proceed to Payment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('address-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zip').value;
+            const country = document.getElementById('country').value;
+
+            const shippingInfo = {
+                name,
+                address,
+                city,
+                zip,
+                country
+            };
+
+            localStorage.setItem('shippingInfo', JSON.stringify(shippingInfo));
+            
+            // Redirect to payment page
+            window.location.href = 'payment.html';
+        });
+    </script>
+</body>
+</html>

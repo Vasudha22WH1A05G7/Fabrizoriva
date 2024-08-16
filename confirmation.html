@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            color: #333;
+        }
+
+        .order-details {
+            margin: 20px 0;
+        }
+
+        .back-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+            background-color: #0c0c0c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: #218838;
+        }
+        
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='mainweb.html'">
+        <img src="https://cdn3.iconfinder.com/data/icons/ui-essential-elements-dark-buttons/110/Back-1024.png" alt="Back Icon">
+       
+    </button>
+    <div class="container">
+        <h1>Order Confirmation</h1>
+        <p>Your order has been placed successfully!</p>
+        <div class="order-details">
+            <!-- Order details will be dynamically added here -->
+        </div>
+        <p id="delivery-date"></p>
+        <a href="mainweb.html" class="back-btn">Continue Shopping</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const lastOrder = orders[orders.length - 1];
+            const orderDetailsContainer = document.querySelector('.order-details');
+        
+            if (lastOrder && lastOrder.items) {
+                let orderDetailsHtml = '<h2>Order Details</h2>';
+                orderDetailsHtml += `<p>Order ID: ${lastOrder.id}</p>`;
+                orderDetailsHtml += '<ul>';
+        
+                lastOrder.items.forEach(item => {
+                    orderDetailsHtml += `<li>${item.name} - ${item.quantity} ${item.quantity > 1 ? 'x' : ''} ${item.price}</li>`;
+                });
+        
+                orderDetailsHtml += '</ul>';
+                orderDetailsHtml += `<p>Total: ${lastOrder.total}</p>`;
+                orderDetailsHtml += `<p>Status: ${lastOrder.status}</p>`;
+        
+                orderDetailsContainer.innerHTML = orderDetailsHtml;
+        
+                const orderDate = new Date();
+                const packedDate = new Date(orderDate);
+                packedDate.setDate(orderDate.getDate() + 2);
+                const shippedDate = new Date(packedDate);
+                shippedDate.setDate(packedDate.getDate() + 2);
+                const deliveryDate = new Date(shippedDate);
+                deliveryDate.setDate(shippedDate.getDate() + 3);
+        
+                const formattedDeliveryDate = deliveryDate.toDateString();
+                document.getElementById('delivery-date').textContent = `Expected Delivery Date: ${formattedDeliveryDate}`;
+        
+                // Save the dates to the last order
+                lastOrder.dates = {
+                    order: orderDate.toDateString(),
+                    packed: packedDate.toDateString(),
+                    shipped: shippedDate.toDateString(),
+                    delivery: formattedDeliveryDate
+                };
+                localStorage.setItem('orders', JSON.stringify(orders));
+            }
+        });
+        
+    </script>
+</body>
+</html>

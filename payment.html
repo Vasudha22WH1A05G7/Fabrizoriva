@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website - Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Updated background color */
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto; /* Adjusted margin */
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 10px;
+            background: #0c0c0c; /* Darker background */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        label:hover {
+            background: #218838; /* Darker hover color */
+        }
+
+        .payment-details {
+            display: none;
+            flex-direction: column;
+            background: #f4f4f4; /* Lighter background */
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 5px;
+            display: none;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: block;
+        }
+
+        button {
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: fit-content;
+        }
+
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Payment Method</h1>
+        <form id="payment-options-form">
+            <label for="credit-debit-atm-card">Credit/Debit/ATM Card <span>&#9660;</span></label>
+            <div id="card-details" class="payment-details">
+                <div class="error-message" id="card-number-error">Please enter Card Number</div>
+                <input type="text" id="card-number" name="card-number" placeholder="Card Number">
+                <div class="error-message" id="expiry-date-error">Please enter Valid Thru</div>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="Valid Thru">
+                <div class="error-message" id="cvv-error">Please enter CVV</div>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV">
+            </div>
+
+            <label for="net-banking">Net Banking <span>&#9660;</span></label>
+            <div id="net-banking-details" class="payment-details">
+                <div class="error-message" id="bank-name-error">Please enter Bank Name</div>
+                <input type="text" id="bank-name" name="bank-name" placeholder="Bank Name">
+            </div>
+
+            <label for="upi">UPI <span>&#9660;</span></label>
+            <div id="upi-details" class="payment-details">
+                <div class="error-message" id="upi-id-error">Please enter UPI ID</div>
+                <input type="text" id="upi-id" name="upi-id" placeholder="UPI ID">
+            </div>
+
+            <label for="cod">Cash on Delivery <span>&#9660;</span></label>
+        </form>
+
+        <button type="button" id="place-order-btn">Confirm Payment</button>
+    </div>
+
+    <script>
+        document.querySelectorAll('label').forEach(label => {
+            label.addEventListener('click', function() {
+                hideAllPaymentDetails();
+                const paymentDetails = this.nextElementSibling;
+                if (paymentDetails) {
+                    paymentDetails.style.display = 'flex';
+                } else {
+                    alert('Cash on Delivery selected. No further details needed.');
+                }
+            });
+        });
+
+        function hideAllPaymentDetails() {
+            document.querySelectorAll('.payment-details').forEach(details => {
+                details.style.display = 'none';
+            });
+        }
+
+        document.querySelectorAll('label').forEach(label => {
+            label.addEventListener('click', function() {
+                hideAllPaymentDetails();
+                const paymentDetails = this.nextElementSibling;
+                if (paymentDetails) {
+                    paymentDetails.style.display = 'flex';
+                } else {
+                    // Handle Cash on Delivery case
+                    window.location.href = 'confirmation.html';
+                }
+            });
+        });
+        
+        document.getElementById('place-order-btn').addEventListener('click', function() {
+            // Directly redirect to confirmation.html
+            window.location.href = 'confirmation.html';
+        });
+    </script>
+    </body>
+    </html>

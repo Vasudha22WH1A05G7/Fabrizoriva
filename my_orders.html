@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .order {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+
+        .order p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .order-details {
+            margin-top: 10px;
+        }
+
+        .track-btn, .cancel-btn {
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        .track-btn:hover, .cancel-btn:hover {
+            background-color: #555;
+        }
+
+        .cancel-btn {
+            background-color: #f44336;
+        }
+
+        .cancel-btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        .back-button img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .back-button span {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='mainweb.html'">
+        <img src="https://cdn3.iconfinder.com/data/icons/ui-essential-elements-dark-buttons/110/Back-1024.png" alt="Back Icon">
+       
+    </button>
+    <div class="container">
+        <h1>My Orders</h1>
+        <div id="orders-container">
+            <!-- Orders will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const ordersContainer = document.getElementById('orders-container');
+
+            ordersContainer.innerHTML = '';
+
+            if (orders.length === 0) {
+                ordersContainer.innerHTML = '<p>No orders found.</p>';
+                return;
+            }
+
+            orders.forEach(order => {
+                const orderDiv = document.createElement('div');
+                orderDiv.classList.add('order');
+
+                let orderHtml = `<p>Order ID: ${order.id}</p>`;
+                orderHtml += '<div class="order-details">';
+                orderHtml += '<ul>';
+
+                order.items.forEach(item => {
+                    orderHtml += `<li>${item.name} - ${item.quantity} x ${item.price}</li>`;
+                });
+
+                orderHtml += '</ul>';
+                orderHtml += '</div>';
+                orderHtml += `<p>Total: ₹${order.total}</p>`;
+                orderHtml += `<p>Status: ${order.status}</p>`;
+                orderHtml += `<button class="track-btn" onclick="trackOrder('${order.id}')">Track Order</button>`;
+                orderHtml += `<button class="cancel-btn" onclick="cancelOrder('${order.id}')">Cancel Order</button>`;
+
+                orderDiv.innerHTML = orderHtml;
+                ordersContainer.appendChild(orderDiv);
+            });
+        });
+
+        function trackOrder(orderId) {
+            alert('Tracking order ID: ' + orderId);
+            window.location.href = 'track_order.html?orderId=' + orderId;
+        }
+
+        function cancelOrder(orderId) {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const updatedOrders = orders.filter(order => order.id !== orderId);
+            localStorage.setItem('orders', JSON.stringify(updatedOrders));
+            document.location.reload(true); // Refresh the page to update the order list
+        }
+    </script>
+</body>
+</html>

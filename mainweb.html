@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FABRIZIO RIVA</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #eae1e7;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 40px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #333;
+            margin-right: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #d4b9b9;
+        }
+
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            position: relative; /* Add this */
+        }
+
+        .navbar-icons a {
+            margin-left: 20px;
+            color: #333;
+            font-size: 20px;
+            position: relative; /* Ensure icons are not affected */
+        }
+
+        section {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        section img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto; /* Allow horizontal scrolling if needed */
+        }
+
+        .product-item {
+            flex: 0 0 auto; /* Don't allow flex items to grow */
+            width: 25%; /* Each item occupies 25% of the container width */
+            max-width: calc(25% - 10px); /* Adjust for gap */
+            text-align: center;
+            background-color: #eae1e7;
+            color: #333;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .product-item:hover {
+            background-color: #d4b9b9;
+        }
+        
+        .dropdown-menu {
+            display: none; /* Initially hide */
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            width: 150px; /* Set the desired width */
+            top: 40px; /* Adjust this value to position correctly */
+            right: 0; /* Adjust this value to position correctly */
+            z-index: 1000; /* Ensure it's above other content */
+            color: #333; /* Black font color */
+        }
+        
+        .dropdown-menu.active {
+            display: block; /* Show when active */
+        }
+        
+        #profile-links {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Remove default margin */
+        }
+        
+        #profile-links li {
+            margin-bottom: 10px; /* Adjust spacing between links */
+        }
+        
+        #profile-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block; /* Ensure each link takes full width of the menu */
+            padding: 10px 0; /* Adjust vertical padding */
+            font-size: 14px; /* Set font size to 14px */
+            transition: background-color 0.3s ease;
+        }
+        
+        #profile-links a:hover {
+            background-color: #d4b9b9;
+        }
+        
+        footer {
+            margin-top: 20px;
+            padding: 40px 20px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-section {
+            margin-bottom: 20px;
+        }
+
+        footer .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+
+        footer .footer-section p, footer .footer-section a {
+            margin-bottom: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        footer .footer-section .social-icons a {
+            margin-right: 10px;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        footer .footer-section .social-icons a:hover {
+            color: #d4b9b9;
+        }
+
+        footer p.copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fabrizioriva</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="about.html">Home</a></li>
+                <li><a href="#women">Women</a></li>
+                <li><a href="#men">Men</a></li>
+                <li><a href="#kids">Kids</a></li>
+            </ul>
+        </nav>
+        <div class="navbar-icons">
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="favourites.html"><i class="fas fa-heart"></i></a>
+            <a href="#" id="profile-icon"><i class="fas fa-user"></i></a>
+            <div class="dropdown-menu" id="profile-dropdown">
+                <ul id="profile-links">
+                    <li><a href="registration.jsp">Register</a></li>
+                    <li><a href="login.jsp">Login</a></li>
+                    <li><a href="my_orders.html">Orders</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="women">
+        <h2>Women's Collection</h2>
+        <div class="product-grid">
+            <a href="ethnic-wear.html" class="product-item">
+                <img src="https://m.media-amazon.com/images/I/71GD8iaM+8L._SY741_.jpg" alt="Ethnic Wear">
+                Ethnic Wear
+            </a>
+            <a href="western-wear.html" class="product-item">
+                <img src="https://i.pinimg.com/564x/fc/52/4a/fc524ab35fe0b20acc876c69555d8c6c.jpg" alt="Western Wear">
+                Western Wear
+            </a>
+        
+            <a href="good4u.html" class="product-item">
+                <img src="https://i.pinimg.com/564x/61/2f/a6/612fa66f25faba1fe5f3ce7e1c900c41.jpg" alt="Party Wear">
+                Party Wear
+            </a>
+            <a href="night-wear.html" class="product-item">
+                <img src="https://i.pinimg.com/564x/2a/09/38/2a093887e70df033127897c547a79ca3.jpg" alt="Night Wear">
+                Night Wear
+            </a>
+        </div>
+    </section>
+
+    <section id="men">
+        <h2>Men's Collection</h2>
+        <div class="product-grid">
+            <a href="jackets.html" class="product-item">
+                <img src="https://i.pinimg.com/736x/70/af/a4/70afa44df17d00e509a008362f53cbd8.jpg" alt="Jackets">
+                Jackets
+            </a>
+            <a href="hoodies.html" class="product-item">
+                <img src="https://i.pinimg.com/564x/6b/47/78/6b47781e1a28ccad7b941553fa1d54eb.jpg" alt="T-shirts & Hoodies">
+                T-shirts & Hoodies
+            </a>
+            <a href="formals.html" class="product-item">
+                <img src="https://i.pinimg.com/564x/eb/2b/4a/eb2b4ac501f83b0c0108b3d560d2aa21.jpg" alt="Formals">
+                Formals
+            </a>
+            <a href="suits.html" class="product-item">
+                <img src="https://i.pinimg.com/564x/93/68/d6/9368d6422eab93c20b886cfbe2ae6115.jpg" alt="Suits">
+                Suits
+            </a>
+        </div>
+    </section>
+
+    <section id="kids">
+        <h2>Kids' Collection</h2>
+        <div class="product-grid">
+            <a href="frocks.html" class="product-item">
+                <img src="https://i.pinimg.com/564x/88/24/5b/88245b3a9afd9e0ee6202fe626f7392b.jpg" alt="Frocks">
+                Frocks
+            </a>
+            <a href="jump-suits.html" class="product-item">
+                <img src="https://i.pinimg.com/736x/cb/a9/7c/cba97c11730b9706b43283d133e22a07.jpg" alt="Jump Suits">
+                Jump Suits
+            </a>
+            <a href="tshirts-kids.html" class="product-item">
+                <img src="https://i.pinimg.com/736x/97/e0/52/97e052b371875724b1134c02c15c6ad2.jpg" alt="T-shirts">
+                T-shirts
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-section">
+          
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <p><a href="about.html">About</a></p>
+            <p><a href="contact.html">Contact Us</a></p>
+            <p><a href="privacy.html">Privacy Policy</a></p>
+            <p><a href="terms.html">Terms of Service</a></p>
+        </div>
+        <div class="footer-section">
+            
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: support@fabrizioriva.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <p>Address: 123 Fashion Street, India, IND 10001</p>
+        </div>
+        <p class="copyright">&copy; 2024 Fabrizioriva. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#profile-icon').click(function(event) {
+                event.stopPropagation(); // Prevent the document click event from closing the dropdown immediately
+                $('#profile-dropdown').toggleClass('active');
+            });
+
+            $(document).click(function(event) {
+                if (!$(event.target).closest('#profile-icon').length && !$(event.target).closest('#profile-dropdown').length) {
+                    $('#profile-dropdown').removeClass('active');
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
